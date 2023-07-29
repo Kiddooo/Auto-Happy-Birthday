@@ -9,14 +9,10 @@
     "repo": "https://github.com/Kiddooo/Auto Happy Birthday"
   },
   "license": "GPL-3.0",
-  "icon": "assets/autohappybirthday/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
       "dev.kiddo.autohappybirthday.client.AutoHappyBirthdayClient"
-    ],
-    "main": [
-      "dev.kiddo.autohappybirthday.AutoHappyBirthday"
     ]
   },
   "mixins": [
