@@ -18,7 +18,7 @@ import static dev.kiddo.autohappybirthday.client.AutoHappyBirthdayClient.*;
 public class BirthdayConfig {
 
     public static final BirthdayConfig INSTANCE = new BirthdayConfig();
-    public  Path AutoHappyBirthdayConfigFile = FabricLoader.getInstance().getConfigDir().resolve("AutoHappyBirthday.json");
+    public Path AutoHappyBirthdayConfigFile = FabricLoader.getInstance().getConfigDir().resolve("AutoHappyBirthday.json");
     public static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 
@@ -26,11 +26,8 @@ public class BirthdayConfig {
         try {
             Files.deleteIfExists(AutoHappyBirthdayConfigFile);
 
-            // Demo
-            HashMap<UUID, String> Demonstrations = new HashMap<>();
-            Demonstrations.put(UUID.fromString("acfcb375-e306-4acf-ae87-41bccb609557"), "21/11/2023");
             HashMap<String, Object> birthdaysFinal = new HashMap<>();
-            birthdaysFinal.put("Birthdays", List.of(Demonstrations));
+            birthdaysFinal.put("Birthdays", List.of());
             Files.writeString(AutoHappyBirthdayConfigFile, gson.toJson(birthdaysFinal));
 
         } catch (IOException e) {
