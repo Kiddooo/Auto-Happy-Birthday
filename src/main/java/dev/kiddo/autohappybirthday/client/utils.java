@@ -89,7 +89,7 @@ public class utils {
         if (date.equals("today")) {
             return getYear(today) + "-" + getMonth(today) + "-" + getDay(today);
         } else if (date.equals("tomorrow")) {
-            return getYear(today) + "-" + getMonth(today) + "-" + (Integer.parseInt(getDay(today)) + 1);
+            return getYear(today) + "-" + getMonth(today) + "-" + getDay(today);
         }
         return null;
     }

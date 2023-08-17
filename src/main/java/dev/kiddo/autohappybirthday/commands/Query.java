@@ -20,13 +20,21 @@ public class Query {
                 literal("ahb")
                         .then(literal("query")
                                 .then(literal("today").executes(ctx -> {
-                                    ArrayList<String> birthdays = utils.getTodaysBirthdays();
-                                    ctx.getSource().getPlayer().sendMessage(Text.of("Todays birthdays are: " + Formatting.YELLOW + String.join(", ", birthdays)));
+                                    ArrayList<String> todaysBirthdays = utils.getTodaysBirthdays();
+                                    if (todaysBirthdays.size() >= 1) {
+                                        ctx.getSource().getPlayer().sendMessage(Text.of("Todays birthdays are: " + Formatting.YELLOW + String.join(", ", todaysBirthdays)));
+                                    } else {
+                                        ctx.getSource().getPlayer().sendMessage(Text.of("No birthdays today :("));
+                                    }
                                     return 1;
                                 }))
                                 .then(literal("tomorrow").executes(ctx -> {
-                                    ArrayList<String> birthdays = utils.getTomorrowBirthdays();
-                                    ctx.getSource().getPlayer().sendMessage(Text.of("Tomorrows birthdays are: " + Formatting.YELLOW + String.join(", ", birthdays)));
+                                    ArrayList<String> tomorrowBirthdays = utils.getTomorrowBirthdays();
+                                    if (tomorrowBirthdays.size() >= 1) {
+                                        ctx.getSource().getPlayer().sendMessage(Text.of("Tomorrows birthdays are: " + Formatting.YELLOW + String.join(", ", tomorrowBirthdays)));
+                                    } else {
+                                        ctx.getSource().getPlayer().sendMessage(Text.of("No birthdays tomorrow :("));
+                                    }
                                     return 1;
                                 }))
                                 .then(argument("Player Name", string()).executes(ctx -> {
